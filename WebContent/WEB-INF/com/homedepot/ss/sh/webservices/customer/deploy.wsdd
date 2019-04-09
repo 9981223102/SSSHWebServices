@@ -1,0 +1,225 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from CustomerWebServiceService WSDL service -->
+
+  <service name="CustomerWebService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://customer.webservices.sh.ss.homedepot.com"/>
+      <parameter name="wsdlServiceElement" value="CustomerWebServiceService"/>
+      <parameter name="schemaUnqualified" value="http://customer.webservices.sh.ss.homedepot.com,http://exceptions.customer.webservices.sh.ss.homedepot.com"/>
+      <parameter name="wsdlServicePort" value="CustomerWebService"/>
+      <parameter name="className" value="com.homedepot.ss.sh.webservices.customer.CustomerWebServiceSoapBindingSkeleton"/>
+      <parameter name="wsdlPortType" value="CustomerWebService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <parameter name="allowedMethods" value="*"/>
+
+      <typeMapping
+        xmlns:ns="http://exceptions.customer.webservices.sh.ss.homedepot.com"
+        qname="ns:CustomerWebServiceException"
+        type="java:com.homedepot.ss.sh.webservices.customer.exceptions.CustomerWebServiceException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://customer.webservices.sh.ss.homedepot.com"
+        qname="ns:ArrayOfPhoneRecord"
+        type="java:com.homedepot.ss.sh.webservices.customer.PhoneRecord[]"
+        innerType="cmp-ns:PhoneRecord" xmlns:cmp-ns="http://customer.webservices.sh.ss.homedepot.com"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://customer.webservices.sh.ss.homedepot.com"
+        qname="ns:AddressRecord"
+        type="java:com.homedepot.ss.sh.webservices.customer.AddressRecord"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://customer.webservices.sh.ss.homedepot.com"
+        qname="ns:AgentRecord"
+        type="java:com.homedepot.ss.sh.webservices.customer.AgentRecord"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://customer.webservices.sh.ss.homedepot.com"
+        qname="ns:TaxRuleRecord"
+        type="java:com.homedepot.ss.sh.webservices.customer.TaxRuleRecord"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://customer.webservices.sh.ss.homedepot.com"
+        qname="ns:UnfvrRentalRecord"
+        type="java:com.homedepot.ss.sh.webservices.customer.UnfvrRentalRecord"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://customer.webservices.sh.ss.homedepot.com"
+        qname="ns:ArrayOfAddressRecord"
+        type="java:com.homedepot.ss.sh.webservices.customer.AddressRecord[]"
+        innerType="cmp-ns:AddressRecord" xmlns:cmp-ns="http://customer.webservices.sh.ss.homedepot.com"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://customer.webservices.sh.ss.homedepot.com"
+        qname="ns:ArrayOfCustomerIdRecord"
+        type="java:com.homedepot.ss.sh.webservices.customer.CustomerIdRecord[]"
+        innerType="cmp-ns:CustomerIdRecord" xmlns:cmp-ns="http://customer.webservices.sh.ss.homedepot.com"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://customer.webservices.sh.ss.homedepot.com"
+        qname="ns:PhoneRecord"
+        type="java:com.homedepot.ss.sh.webservices.customer.PhoneRecord"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://customer.webservices.sh.ss.homedepot.com"
+        qname="ns:ArrayOfTaxRuleRecord"
+        type="java:com.homedepot.ss.sh.webservices.customer.TaxRuleRecord[]"
+        innerType="cmp-ns:TaxRuleRecord" xmlns:cmp-ns="http://customer.webservices.sh.ss.homedepot.com"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://customer.webservices.sh.ss.homedepot.com"
+        qname="ns:EmailAddressRecord"
+        type="java:com.homedepot.ss.sh.webservices.customer.EmailAddressRecord"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://customer.webservices.sh.ss.homedepot.com"
+        qname="ns:ArrayOfEmailAddressRecord"
+        type="java:com.homedepot.ss.sh.webservices.customer.EmailAddressRecord[]"
+        innerType="cmp-ns:EmailAddressRecord" xmlns:cmp-ns="http://customer.webservices.sh.ss.homedepot.com"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://customer.webservices.sh.ss.homedepot.com"
+        qname="ns:ArrayOfContactRecord"
+        type="java:com.homedepot.ss.sh.webservices.customer.ContactRecord[]"
+        innerType="cmp-ns:ContactRecord" xmlns:cmp-ns="http://customer.webservices.sh.ss.homedepot.com"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://customer.webservices.sh.ss.homedepot.com"
+        qname="ns:RentalRecord"
+        type="java:com.homedepot.ss.sh.webservices.customer.RentalRecord"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://customer.webservices.sh.ss.homedepot.com"
+        qname="ns:TaxblStatRecord"
+        type="java:com.homedepot.ss.sh.webservices.customer.TaxblStatRecord"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://customer.webservices.sh.ss.homedepot.com"
+        qname="ns:ContactRecord"
+        type="java:com.homedepot.ss.sh.webservices.customer.ContactRecord"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://customer.webservices.sh.ss.homedepot.com"
+        qname="ns:CustomerRecord"
+        type="java:com.homedepot.ss.sh.webservices.customer.CustomerRecord"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://customer.webservices.sh.ss.homedepot.com"
+        qname="ns:CustomerIdRecord"
+        type="java:com.homedepot.ss.sh.webservices.customer.CustomerIdRecord"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://customer.webservices.sh.ss.homedepot.com"
+        qname="ns:ArrayOfAgentRecord"
+        type="java:com.homedepot.ss.sh.webservices.customer.AgentRecord[]"
+        innerType="cmp-ns:AgentRecord" xmlns:cmp-ns="http://customer.webservices.sh.ss.homedepot.com"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://customer.webservices.sh.ss.homedepot.com"
+        qname="ns:VhclInsrRecord"
+        type="java:com.homedepot.ss.sh.webservices.customer.VhclInsrRecord"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://customer.webservices.sh.ss.homedepot.com"
+        qname="ns:ArrayOfUnfvrRentalRecord"
+        type="java:com.homedepot.ss.sh.webservices.customer.UnfvrRentalRecord[]"
+        innerType="cmp-ns:UnfvrRentalRecord" xmlns:cmp-ns="http://customer.webservices.sh.ss.homedepot.com"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://customer.webservices.sh.ss.homedepot.com"
+        qname="ns:SearchRecord"
+        type="java:com.homedepot.ss.sh.webservices.customer.SearchRecord"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://customer.webservices.sh.ss.homedepot.com"
+        qname="ns:ArrayOfSearchRecord"
+        type="java:com.homedepot.ss.sh.webservices.customer.SearchRecord[]"
+        innerType="cmp-ns:SearchRecord" xmlns:cmp-ns="http://customer.webservices.sh.ss.homedepot.com"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://customer.webservices.sh.ss.homedepot.com"
+        qname="ns:PRODetailRecord"
+        type="java:com.homedepot.ss.sh.webservices.customer.PRODetailRecord"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://customer.webservices.sh.ss.homedepot.com"
+        qname="ns:DIYDetailRecord"
+        type="java:com.homedepot.ss.sh.webservices.customer.DIYDetailRecord"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://customer.webservices.sh.ss.homedepot.com"
+        qname="ns:InsertRecord"
+        type="java:com.homedepot.ss.sh.webservices.customer.InsertRecord"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

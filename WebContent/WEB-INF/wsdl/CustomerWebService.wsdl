@@ -1,0 +1,959 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://customer.webservices.sh.ss.homedepot.com" xmlns:impl="http://customer.webservices.sh.ss.homedepot.com" xmlns:intf="http://customer.webservices.sh.ss.homedepot.com" xmlns:tns2="http://exceptions.customer.webservices.sh.ss.homedepot.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsi="http://ws-i.org/profiles/basic/1.1/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ <wsdl:types>
+  <schema targetNamespace="http://customer.webservices.sh.ss.homedepot.com" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <element name="searchByExOrgNameCityResponse">
+    <complexType>
+     <sequence>
+      <element name="searchByExOrgNameCityReturn" nillable="true" type="impl:ArrayOfSearchRecord"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByName">
+    <complexType>
+     <sequence>
+      <element name="locTypCd" nillable="true" type="xsd:string"/>
+      <element name="locNbr" nillable="true" type="xsd:string"/>
+      <element name="firstNm" nillable="true" type="xsd:string"/>
+      <element name="lastNm" nillable="true" type="xsd:string"/>
+      <element name="pstlCd" nillable="true" type="xsd:string"/>
+      <element name="cntryCd" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByNameResponse">
+    <complexType>
+     <sequence>
+      <element name="searchByNameReturn" nillable="true" type="impl:ArrayOfSearchRecord"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertCustomer">
+    <complexType>
+     <sequence>
+      <element name="locTypCd" nillable="true" type="xsd:string"/>
+      <element name="locNbr" nillable="true" type="xsd:string"/>
+      <element name="customer" nillable="true" type="impl:CustomerRecord"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertCustomerResponse">
+    <complexType>
+     <sequence>
+      <element name="insertCustomerReturn" nillable="true" type="impl:InsertRecord"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByExName">
+    <complexType>
+     <sequence>
+      <element name="locTypCd" nillable="true" type="xsd:string"/>
+      <element name="locNbr" nillable="true" type="xsd:string"/>
+      <element name="firstNm" nillable="true" type="xsd:string"/>
+      <element name="lastNm" nillable="true" type="xsd:string"/>
+      <element name="pstlCd" nillable="true" type="xsd:string"/>
+      <element name="cntryCd" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByExNameResponse">
+    <complexType>
+     <sequence>
+      <element name="searchByExNameReturn" nillable="true" type="impl:ArrayOfSearchRecord"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCustomer">
+    <complexType>
+     <sequence>
+      <element name="locTypCd" nillable="true" type="xsd:string"/>
+      <element name="locNbr" nillable="true" type="xsd:string"/>
+      <element name="hcustNbr" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCustomerResponse">
+    <complexType>
+     <sequence>
+      <element name="getCustomerReturn" nillable="true" type="impl:CustomerRecord"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByOrgName">
+    <complexType>
+     <sequence>
+      <element name="locTypCd" nillable="true" type="xsd:string"/>
+      <element name="locNbr" nillable="true" type="xsd:string"/>
+      <element name="orgNm" nillable="true" type="xsd:string"/>
+      <element name="pstlCd" nillable="true" type="xsd:string"/>
+      <element name="cntryCd" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByOrgNameResponse">
+    <complexType>
+     <sequence>
+      <element name="searchByOrgNameReturn" nillable="true" type="impl:ArrayOfSearchRecord"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateCustomer">
+    <complexType>
+     <sequence>
+      <element name="locTypCd" nillable="true" type="xsd:string"/>
+      <element name="locNbr" nillable="true" type="xsd:string"/>
+      <element name="customer" nillable="true" type="impl:CustomerRecord"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateCustomerResponse">
+    <complexType>
+     <sequence/>
+    </complexType>
+   </element>
+   <element name="searchByOrgNameCity">
+    <complexType>
+     <sequence>
+      <element name="locTypCd" nillable="true" type="xsd:string"/>
+      <element name="locNbr" nillable="true" type="xsd:string"/>
+      <element name="orgNm" nillable="true" type="xsd:string"/>
+      <element name="cityNm" nillable="true" type="xsd:string"/>
+      <element name="stCd" nillable="true" type="xsd:string"/>
+      <element name="cntryCd" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByOrgNameCityResponse">
+    <complexType>
+     <sequence>
+      <element name="searchByOrgNameCityReturn" nillable="true" type="impl:ArrayOfSearchRecord"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByPhone">
+    <complexType>
+     <sequence>
+      <element name="locTypCd" nillable="true" type="xsd:string"/>
+      <element name="locNbr" nillable="true" type="xsd:string"/>
+      <element name="cntryCd" nillable="true" type="xsd:string"/>
+      <element name="phnAreaCityCd" nillable="true" type="xsd:string"/>
+      <element name="phnLoclNbr" nillable="true" type="xsd:string"/>
+      <element name="custTypInd" type="xsd:short"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByPhoneResponse">
+    <complexType>
+     <sequence>
+      <element name="searchByPhoneReturn" nillable="true" type="impl:ArrayOfSearchRecord"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByExOrgName">
+    <complexType>
+     <sequence>
+      <element name="locTypCd" nillable="true" type="xsd:string"/>
+      <element name="locNbr" nillable="true" type="xsd:string"/>
+      <element name="orgNm" nillable="true" type="xsd:string"/>
+      <element name="pstlCd" nillable="true" type="xsd:string"/>
+      <element name="cntryCd" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByExOrgNameResponse">
+    <complexType>
+     <sequence>
+      <element name="searchByExOrgNameReturn" nillable="true" type="impl:ArrayOfSearchRecord"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByExOrgNameCity">
+    <complexType>
+     <sequence>
+      <element name="locTypCd" nillable="true" type="xsd:string"/>
+      <element name="locNbr" nillable="true" type="xsd:string"/>
+      <element name="orgNm" nillable="true" type="xsd:string"/>
+      <element name="cityNm" nillable="true" type="xsd:string"/>
+      <element name="stCd" nillable="true" type="xsd:string"/>
+      <element name="cntryCd" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="SearchRecord">
+    <sequence>
+     <element name="hostCustNbr" type="xsd:int"/>
+     <element name="loclCustNbr" type="xsd:int"/>
+     <element name="phnNbrTypCd" type="xsd:short"/>
+     <element name="phnAreaCityCd" nillable="true" type="xsd:string"/>
+     <element name="phnLoclNbr" nillable="true" type="xsd:string"/>
+     <element name="firstNm" nillable="true" type="xsd:string"/>
+     <element name="lastNm" nillable="true" type="xsd:string"/>
+     <element name="orgNm" nillable="true" type="xsd:string"/>
+     <element name="addrLn1Txt" nillable="true" type="xsd:string"/>
+     <element name="cityNm" nillable="true" type="xsd:string"/>
+     <element name="stCd" nillable="true" type="xsd:string"/>
+     <element name="pstlCd" nillable="true" type="xsd:string"/>
+     <element name="seqNbr" type="xsd:int"/>
+     <element name="custStatCd" type="xsd:short"/>
+     <element name="lastUpdTm" nillable="true" type="xsd:dateTime"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOfSearchRecord">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="SearchRecord" nillable="true" type="impl:SearchRecord"/>
+    </sequence>
+   </complexType>
+   <complexType name="CustomerRecord">
+    <sequence>
+     <element name="hostCustNbr" type="xsd:int"/>
+     <element name="localCustNbr" type="xsd:int"/>
+     <element name="custTypCd" type="xsd:short"/>
+     <element name="custStatCd" type="xsd:short"/>
+     <element name="statEffDt" nillable="true" type="xsd:dateTime"/>
+     <element name="cntctMethCd" type="xsd:short"/>
+     <element name="cntctAddrCd" type="xsd:short"/>
+     <element name="cntctPhnCd" type="xsd:short"/>
+     <element name="cntctEmailTypCd" type="xsd:short"/>
+     <element name="cntctWkBgnTm" nillable="true" type="xsd:string"/>
+     <element name="cntctWkEndTm" nillable="true" type="xsd:string"/>
+     <element name="cntctWkendBgnTm" nillable="true" type="xsd:string"/>
+     <element name="cntctWkendEndTm" nillable="true" type="xsd:string"/>
+     <element name="emailCltCd" nillable="true" type="xsd:short"/>
+     <element name="emailCltRqstDt" nillable="true" type="xsd:dateTime"/>
+     <element name="seqNbr" type="xsd:int"/>
+     <element name="lastUpdUserId" nillable="true" type="xsd:string"/>
+     <element name="lastUpdTm" nillable="true" type="xsd:dateTime"/>
+     <element name="phoneRecords" nillable="true" type="impl:ArrayOfPhoneRecord"/>
+     <element name="addrRecords" nillable="true" type="impl:ArrayOfAddressRecord"/>
+     <element name="emailAddrRecords" nillable="true" type="impl:ArrayOfEmailAddressRecord"/>
+     <element name="vhclInsrRecord" nillable="true" type="impl:VhclInsrRecord"/>
+     <element name="custIdRecords" nillable="true" type="impl:ArrayOfCustomerIdRecord"/>
+     <element name="rentalRecord" nillable="true" type="impl:RentalRecord"/>
+     <element name="cntctRecords" nillable="true" type="impl:ArrayOfContactRecord"/>
+     <element name="taxRuleRecords" nillable="true" type="impl:ArrayOfTaxRuleRecord"/>
+     <element name="taxblStatRecord" nillable="true" type="impl:TaxblStatRecord"/>
+     <element name="PRODetailRecord" nillable="true" type="impl:PRODetailRecord"/>
+     <element name="DIYDetailRecord" nillable="true" type="impl:DIYDetailRecord"/>
+    </sequence>
+   </complexType>
+   <complexType name="PhoneRecord">
+    <sequence>
+     <element name="phnNbrTypCd" type="xsd:short"/>
+     <element name="phnAreaCityCd" nillable="true" type="xsd:string"/>
+     <element name="phnLoclNbr" nillable="true" type="xsd:string"/>
+     <element name="phnExt" nillable="true" type="xsd:string"/>
+     <element name="phnPin" nillable="true" type="xsd:string"/>
+     <element name="cntryCd" nillable="true" type="xsd:string"/>
+     <element name="prefFlg" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOfPhoneRecord">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="PhoneRecord" nillable="true" type="impl:PhoneRecord"/>
+    </sequence>
+   </complexType>
+   <complexType name="AddressRecord">
+    <sequence>
+     <element name="addrTypCd" type="xsd:short"/>
+     <element name="addrLn1Txt" nillable="true" type="xsd:string"/>
+     <element name="addrLn2Txt" nillable="true" type="xsd:string"/>
+     <element name="addrLn3Txt" nillable="true" type="xsd:string"/>
+     <element name="addrLn4Txt" nillable="true" type="xsd:string"/>
+     <element name="addrLn5Txt" nillable="true" type="xsd:string"/>
+     <element name="cityNm" nillable="true" type="xsd:string"/>
+     <element name="cntyNm" nillable="true" type="xsd:string"/>
+     <element name="stCd" nillable="true" type="xsd:string"/>
+     <element name="pstlCd" nillable="true" type="xsd:string"/>
+     <element name="cntryCd" nillable="true" type="xsd:string"/>
+     <element name="primAddrTaxFlg" nillable="true" type="xsd:string"/>
+     <element name="axGeoCd" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOfAddressRecord">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="AddressRecord" nillable="true" type="impl:AddressRecord"/>
+    </sequence>
+   </complexType>
+   <complexType name="EmailAddressRecord">
+    <sequence>
+     <element name="emailAddrTypCd" type="xsd:short"/>
+     <element name="emailAddrTxt" nillable="true" type="xsd:string"/>
+     <element name="solicitFlg" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOfEmailAddressRecord">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="EmailAddressRecord" nillable="true" type="impl:EmailAddressRecord"/>
+    </sequence>
+   </complexType>
+   <complexType name="VhclInsrRecord">
+    <sequence>
+     <element name="prvdrNm" nillable="true" type="xsd:string"/>
+     <element name="plcyNbr" nillable="true" type="xsd:string"/>
+     <element name="plcyExpDt" nillable="true" type="xsd:dateTime"/>
+     <element name="phnAreaCityCd" nillable="true" type="xsd:string"/>
+     <element name="phnLoclNbr" nillable="true" type="xsd:string"/>
+     <element name="phnExt" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="CustomerIdRecord">
+    <sequence>
+     <element name="locTypCd" nillable="true" type="xsd:string"/>
+     <element name="locNbr" nillable="true" type="xsd:string"/>
+     <element name="seqNbr" type="xsd:int"/>
+     <element name="jursdTypCd" type="xsd:short"/>
+     <element name="jursdLvl" type="xsd:short"/>
+     <element name="jursdCd" type="xsd:int"/>
+     <element name="custIdTypCd" type="xsd:short"/>
+     <element name="custIdNbr" nillable="true" type="xsd:string"/>
+     <element name="custIdExpDt" nillable="true" type="xsd:dateTime"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOfCustomerIdRecord">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="CustomerIdRecord" nillable="true" type="impl:CustomerIdRecord"/>
+    </sequence>
+   </complexType>
+   <complexType name="RentalRecord">
+    <sequence>
+     <element name="dfltDpstMeth" nillable="true" type="xsd:string"/>
+     <element name="rntlCustStatCd" type="xsd:short"/>
+     <element name="dmgWvrReqdFlg" nillable="true" type="xsd:string"/>
+     <element name="custPOReqdFlg" nillable="true" type="xsd:string"/>
+     <element name="jobSiteReqdFlg" nillable="true" type="xsd:string"/>
+     <element name="ltdRntlCnt" type="xsd:short"/>
+     <element name="ltdRntlAmt" type="xsd:double"/>
+     <element name="custLastRntlDt" nillable="true" type="xsd:dateTime"/>
+     <element name="rntlFedTaxId" nillable="true" type="xsd:string"/>
+     <element name="rntlTaxExmptUpdDt" nillable="true" type="xsd:dateTime"/>
+     <element name="unfvrRactvyRecords" nillable="true" type="impl:ArrayOfUnfvrRentalRecord"/>
+    </sequence>
+   </complexType>
+   <complexType name="UnfvrRentalRecord">
+    <sequence>
+     <element name="locTypCd" nillable="true" type="xsd:string"/>
+     <element name="locNbr" nillable="true" type="xsd:string"/>
+     <element name="locName" nillable="true" type="xsd:string"/>
+     <element name="rntlAgrmntNbr" type="xsd:int"/>
+     <element name="rpgmPhnAreaCd" nillable="true" type="xsd:string"/>
+     <element name="rpgmPhnLoclNbr" nillable="true" type="xsd:string"/>
+     <element name="rpgmPhnExt" nillable="true" type="xsd:string"/>
+     <element name="unfvrRactvyCd" type="xsd:short"/>
+     <element name="unfvrRactvyAmt" type="xsd:double"/>
+     <element name="resDt" nillable="true" type="xsd:dateTime"/>
+     <element name="rntlAgrmntCloseDt" nillable="true" type="xsd:dateTime"/>
+     <element name="lastUpdUserId" nillable="true" type="xsd:string"/>
+     <element name="lastUpdTm" nillable="true" type="xsd:dateTime"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOfUnfvrRentalRecord">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="UnfvrRentalRecord" nillable="true" type="impl:UnfvrRentalRecord"/>
+    </sequence>
+   </complexType>
+   <complexType name="ContactRecord">
+    <sequence>
+     <element name="cntctHostCustNbr" type="xsd:int"/>
+     <element name="locTypCd" nillable="true" type="xsd:string"/>
+     <element name="locNbr" nillable="true" type="xsd:string"/>
+     <element name="seqNbr" type="xsd:int"/>
+     <element name="cntctMethCd" type="xsd:short"/>
+     <element name="cntctAddrCd" type="xsd:short"/>
+     <element name="cntctPhnCd" type="xsd:short"/>
+     <element name="cntctEmailTypCd" type="xsd:short"/>
+     <element name="cntctWkBgnTm" nillable="true" type="xsd:string"/>
+     <element name="cntctWkEndTm" nillable="true" type="xsd:string"/>
+     <element name="cntctWkendBgnTm" nillable="true" type="xsd:string"/>
+     <element name="cntctWkendEndTm" nillable="true" type="xsd:string"/>
+     <element name="actvFlg" nillable="true" type="xsd:string"/>
+     <element name="agntSeqNbr" type="xsd:int"/>
+     <element name="agntLocTypCd" nillable="true" type="xsd:string"/>
+     <element name="agntLocNbr" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOfContactRecord">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="ContactRecord" nillable="true" type="impl:ContactRecord"/>
+    </sequence>
+   </complexType>
+   <complexType name="TaxRuleRecord">
+    <sequence>
+     <element name="locTypCd" nillable="true" type="xsd:string"/>
+     <element name="locNbr" nillable="true" type="xsd:string"/>
+     <element name="seqNbr" type="xsd:int"/>
+     <element name="jursdTypCd" type="xsd:short"/>
+     <element name="jursdLvl" type="xsd:short"/>
+     <element name="jursdCd" type="xsd:int"/>
+     <element name="taxPaymtAuthFlg" nillable="true" type="xsd:string"/>
+     <element name="taxExmptActvFlg" nillable="true" type="xsd:string"/>
+     <element name="taxTyp" type="xsd:short"/>
+     <element name="taxCd" type="xsd:short"/>
+     <element name="effBgnDt" nillable="true" type="xsd:dateTime"/>
+     <element name="effEndDt" nillable="true" type="xsd:dateTime"/>
+     <element name="taxExmptAmt" type="xsd:double"/>
+     <element name="taxExmptPct" type="xsd:double"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOfTaxRuleRecord">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="TaxRuleRecord" nillable="true" type="impl:TaxRuleRecord"/>
+    </sequence>
+   </complexType>
+   <complexType name="TaxblStatRecord">
+    <sequence>
+     <element name="taxblStatCd" type="xsd:short"/>
+     <element name="taxPayAgreeCd" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <complexType name="PRODetailRecord">
+    <sequence>
+     <element name="orgNm" nillable="true" type="xsd:string"/>
+     <element name="SICCd" nillable="true" type="xsd:string"/>
+     <element name="taxExmptFlg" nillable="true" type="xsd:string"/>
+     <element name="taxExmptUpdDt" nillable="true" type="xsd:dateTime"/>
+     <element name="fedTaxId" nillable="true" type="xsd:string"/>
+     <element name="agents" nillable="true" type="impl:ArrayOfAgentRecord"/>
+    </sequence>
+   </complexType>
+   <complexType name="AgentRecord">
+    <sequence>
+     <element name="locTypCd" nillable="true" type="xsd:string"/>
+     <element name="locNbr" nillable="true" type="xsd:string"/>
+     <element name="seqNbr" type="xsd:int"/>
+     <element name="crtTm" nillable="true" type="xsd:dateTime"/>
+     <element name="jursdTypCd" type="xsd:short"/>
+     <element name="jursdLvl" type="xsd:short"/>
+     <element name="jursdCd" type="xsd:int"/>
+     <element name="custIdTypCd" type="xsd:short"/>
+     <element name="custIdNbr" nillable="true" type="xsd:string"/>
+     <element name="custIdExpDt" nillable="true" type="xsd:dateTime"/>
+     <element name="firstNm" nillable="true" type="xsd:string"/>
+     <element name="middleNm" nillable="true" type="xsd:string"/>
+     <element name="lastNm" nillable="true" type="xsd:string"/>
+     <element name="suffix" nillable="true" type="xsd:string"/>
+     <element name="title" nillable="true" type="xsd:string"/>
+     <element name="actvFlg" nillable="true" type="xsd:string"/>
+     <element name="lastUpdUserId" nillable="true" type="xsd:string"/>
+     <element name="lastUpdTm" nillable="true" type="xsd:dateTime"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOfAgentRecord">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="AgentRecord" nillable="true" type="impl:AgentRecord"/>
+    </sequence>
+   </complexType>
+   <complexType name="DIYDetailRecord">
+    <sequence>
+     <element name="firstNm" nillable="true" type="xsd:string"/>
+     <element name="middleNm" nillable="true" type="xsd:string"/>
+     <element name="lastNm" nillable="true" type="xsd:string"/>
+     <element name="suffix" nillable="true" type="xsd:string"/>
+     <element name="title" nillable="true" type="xsd:string"/>
+     <element name="birthDt" nillable="true" type="xsd:dateTime"/>
+    </sequence>
+   </complexType>
+   <complexType name="InsertRecord">
+    <sequence>
+     <element name="hostCustNbr" type="xsd:int"/>
+     <element name="localCustNbr" type="xsd:int"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema targetNamespace="http://exceptions.customer.webservices.sh.ss.homedepot.com" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <complexType name="CustomerWebServiceException">
+    <sequence>
+     <element name="msgNbr" nillable="true" type="xsd:string"/>
+     <element name="message" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="CustomerWebServiceException" nillable="true" type="tns2:CustomerWebServiceException"/>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="CustomerWebServiceException">
+
+      <wsdl:part element="tns2:CustomerWebServiceException" name="fault"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateCustomerRequest">
+
+      <wsdl:part element="impl:updateCustomer" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByNameRequest">
+
+      <wsdl:part element="impl:searchByName" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByOrgNameRequest">
+
+      <wsdl:part element="impl:searchByOrgName" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCustomerResponse">
+
+      <wsdl:part element="impl:getCustomerResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByExOrgNameRequest">
+
+      <wsdl:part element="impl:searchByExOrgName" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByPhoneRequest">
+
+      <wsdl:part element="impl:searchByPhone" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByOrgNameCityResponse">
+
+      <wsdl:part element="impl:searchByOrgNameCityResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByOrgNameResponse">
+
+      <wsdl:part element="impl:searchByOrgNameResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByOrgNameCityRequest">
+
+      <wsdl:part element="impl:searchByOrgNameCity" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByNameResponse">
+
+      <wsdl:part element="impl:searchByNameResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByExNameRequest">
+
+      <wsdl:part element="impl:searchByExName" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCustomerRequest">
+
+      <wsdl:part element="impl:getCustomer" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByExOrgNameCityResponse">
+
+      <wsdl:part element="impl:searchByExOrgNameCityResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByExOrgNameCityRequest">
+
+      <wsdl:part element="impl:searchByExOrgNameCity" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertCustomerResponse">
+
+      <wsdl:part element="impl:insertCustomerResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByExOrgNameResponse">
+
+      <wsdl:part element="impl:searchByExOrgNameResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateCustomerResponse">
+
+      <wsdl:part element="impl:updateCustomerResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByExNameResponse">
+
+      <wsdl:part element="impl:searchByExNameResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByPhoneResponse">
+
+      <wsdl:part element="impl:searchByPhoneResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertCustomerRequest">
+
+      <wsdl:part element="impl:insertCustomer" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="CustomerWebService">
+
+      <wsdl:operation name="searchByExOrgNameCity">
+
+         <wsdl:input message="impl:searchByExOrgNameCityRequest" name="searchByExOrgNameCityRequest"/>
+
+         <wsdl:output message="impl:searchByExOrgNameCityResponse" name="searchByExOrgNameCityResponse"/>
+
+         <wsdl:fault message="impl:CustomerWebServiceException" name="CustomerWebServiceException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByName">
+
+         <wsdl:input message="impl:searchByNameRequest" name="searchByNameRequest"/>
+
+         <wsdl:output message="impl:searchByNameResponse" name="searchByNameResponse"/>
+
+         <wsdl:fault message="impl:CustomerWebServiceException" name="CustomerWebServiceException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="insertCustomer">
+
+         <wsdl:input message="impl:insertCustomerRequest" name="insertCustomerRequest"/>
+
+         <wsdl:output message="impl:insertCustomerResponse" name="insertCustomerResponse"/>
+
+         <wsdl:fault message="impl:CustomerWebServiceException" name="CustomerWebServiceException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByExName">
+
+         <wsdl:input message="impl:searchByExNameRequest" name="searchByExNameRequest"/>
+
+         <wsdl:output message="impl:searchByExNameResponse" name="searchByExNameResponse"/>
+
+         <wsdl:fault message="impl:CustomerWebServiceException" name="CustomerWebServiceException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomer">
+
+         <wsdl:input message="impl:getCustomerRequest" name="getCustomerRequest"/>
+
+         <wsdl:output message="impl:getCustomerResponse" name="getCustomerResponse"/>
+
+         <wsdl:fault message="impl:CustomerWebServiceException" name="CustomerWebServiceException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByOrgName">
+
+         <wsdl:input message="impl:searchByOrgNameRequest" name="searchByOrgNameRequest"/>
+
+         <wsdl:output message="impl:searchByOrgNameResponse" name="searchByOrgNameResponse"/>
+
+         <wsdl:fault message="impl:CustomerWebServiceException" name="CustomerWebServiceException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateCustomer">
+
+         <wsdl:input message="impl:updateCustomerRequest" name="updateCustomerRequest"/>
+
+         <wsdl:output message="impl:updateCustomerResponse" name="updateCustomerResponse"/>
+
+         <wsdl:fault message="impl:CustomerWebServiceException" name="CustomerWebServiceException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByOrgNameCity">
+
+         <wsdl:input message="impl:searchByOrgNameCityRequest" name="searchByOrgNameCityRequest"/>
+
+         <wsdl:output message="impl:searchByOrgNameCityResponse" name="searchByOrgNameCityResponse"/>
+
+         <wsdl:fault message="impl:CustomerWebServiceException" name="CustomerWebServiceException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByPhone">
+
+         <wsdl:input message="impl:searchByPhoneRequest" name="searchByPhoneRequest"/>
+
+         <wsdl:output message="impl:searchByPhoneResponse" name="searchByPhoneResponse"/>
+
+         <wsdl:fault message="impl:CustomerWebServiceException" name="CustomerWebServiceException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByExOrgName">
+
+         <wsdl:input message="impl:searchByExOrgNameRequest" name="searchByExOrgNameRequest"/>
+
+         <wsdl:output message="impl:searchByExOrgNameResponse" name="searchByExOrgNameResponse"/>
+
+         <wsdl:fault message="impl:CustomerWebServiceException" name="CustomerWebServiceException"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="CustomerWebServiceSoapBinding" type="impl:CustomerWebService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="searchByExOrgNameCity">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchByExOrgNameCityRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchByExOrgNameCityResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="CustomerWebServiceException">
+
+            <wsdlsoap:fault name="CustomerWebServiceException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByName">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchByNameRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchByNameResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="CustomerWebServiceException">
+
+            <wsdlsoap:fault name="CustomerWebServiceException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="insertCustomer">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="insertCustomerRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="insertCustomerResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="CustomerWebServiceException">
+
+            <wsdlsoap:fault name="CustomerWebServiceException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByExName">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchByExNameRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchByExNameResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="CustomerWebServiceException">
+
+            <wsdlsoap:fault name="CustomerWebServiceException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomer">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCustomerRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCustomerResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="CustomerWebServiceException">
+
+            <wsdlsoap:fault name="CustomerWebServiceException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByOrgName">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchByOrgNameRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchByOrgNameResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="CustomerWebServiceException">
+
+            <wsdlsoap:fault name="CustomerWebServiceException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateCustomer">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateCustomerRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateCustomerResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="CustomerWebServiceException">
+
+            <wsdlsoap:fault name="CustomerWebServiceException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByOrgNameCity">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchByOrgNameCityRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchByOrgNameCityResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="CustomerWebServiceException">
+
+            <wsdlsoap:fault name="CustomerWebServiceException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByPhone">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchByPhoneRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchByPhoneResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="CustomerWebServiceException">
+
+            <wsdlsoap:fault name="CustomerWebServiceException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByExOrgName">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchByExOrgNameRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchByExOrgNameResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="CustomerWebServiceException">
+
+            <wsdlsoap:fault name="CustomerWebServiceException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="CustomerWebServiceService">
+
+      <wsdl:port binding="impl:CustomerWebServiceSoapBinding" name="CustomerWebService">
+
+         <wsdlsoap:address location="http://webapps-qa.homedepot.com/SSSHWebServicesWeb/services/CustomerWebService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

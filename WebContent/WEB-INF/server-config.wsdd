@@ -1,0 +1,112 @@
+<ns1:deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns1="http://xml.apache.org/axis/wsdd/">
+ <ns1:globalConfiguration>
+  <ns1:parameter name="sendMultiRefs" value="true"/>
+  <ns1:parameter name="disablePrettyXML" value="true"/>
+  <ns1:parameter name="adminPassword" value="admin"/>
+  <ns1:parameter name="attachments.Directory" value=""/>
+  <ns1:parameter name="dotNetSoapEncFix" value="true"/>
+  <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <ns1:parameter name="sendXMLDeclaration" value="true"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:requestFlow>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="session"/>
+   </ns1:handler>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="request"/>
+    <ns1:parameter name="extension" value=".jwr"/>
+   </ns1:handler>
+  </ns1:requestFlow>
+ </ns1:globalConfiguration>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <ns1:service name="CustomerWebService" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:parameter name="allowedMethods" value="*"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="CustomerWebService"/>
+  <ns1:parameter name="className" value="com.homedepot.ss.sh.webservices.customer.CustomerWebServiceSoapBindingSkeleton"/>
+  <ns1:parameter name="wsdlServicePort" value="CustomerWebService"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://customer.webservices.sh.ss.homedepot.com"/>
+  <ns1:parameter name="wsdlServiceElement" value="CustomerWebServiceService"/>
+  <ns1:parameter name="schemaUnqualified" value="http://customer.webservices.sh.ss.homedepot.com,http://exceptions.customer.webservices.sh.ss.homedepot.com"/>
+  <ns2:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns1:CustomerWebServiceException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.homedepot.ss.sh.webservices.customer.exceptions.CustomerWebServiceException" xmlns:ns1="http://exceptions.customer.webservices.sh.ss.homedepot.com" xmlns:ns2="http://xml.apache.org/axis/wsdd/"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns2:AddressRecord" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.homedepot.ss.sh.webservices.customer.AddressRecord" xmlns:ns2="http://customer.webservices.sh.ss.homedepot.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns3:AgentRecord" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.homedepot.ss.sh.webservices.customer.AgentRecord" xmlns:ns3="http://customer.webservices.sh.ss.homedepot.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns4:TaxRuleRecord" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.homedepot.ss.sh.webservices.customer.TaxRuleRecord" xmlns:ns4="http://customer.webservices.sh.ss.homedepot.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns5:UnfvrRentalRecord" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.homedepot.ss.sh.webservices.customer.UnfvrRentalRecord" xmlns:ns5="http://customer.webservices.sh.ss.homedepot.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns6:PhoneRecord" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.homedepot.ss.sh.webservices.customer.PhoneRecord" xmlns:ns6="http://customer.webservices.sh.ss.homedepot.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns7:EmailAddressRecord" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.homedepot.ss.sh.webservices.customer.EmailAddressRecord" xmlns:ns7="http://customer.webservices.sh.ss.homedepot.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns8:RentalRecord" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.homedepot.ss.sh.webservices.customer.RentalRecord" xmlns:ns8="http://customer.webservices.sh.ss.homedepot.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns9:TaxblStatRecord" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.homedepot.ss.sh.webservices.customer.TaxblStatRecord" xmlns:ns9="http://customer.webservices.sh.ss.homedepot.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns10:ContactRecord" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.homedepot.ss.sh.webservices.customer.ContactRecord" xmlns:ns10="http://customer.webservices.sh.ss.homedepot.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns11:CustomerRecord" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.homedepot.ss.sh.webservices.customer.CustomerRecord" xmlns:ns11="http://customer.webservices.sh.ss.homedepot.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns12:CustomerIdRecord" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.homedepot.ss.sh.webservices.customer.CustomerIdRecord" xmlns:ns12="http://customer.webservices.sh.ss.homedepot.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns13:VhclInsrRecord" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.homedepot.ss.sh.webservices.customer.VhclInsrRecord" xmlns:ns13="http://customer.webservices.sh.ss.homedepot.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns14:SearchRecord" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.homedepot.ss.sh.webservices.customer.SearchRecord" xmlns:ns14="http://customer.webservices.sh.ss.homedepot.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns15:PRODetailRecord" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.homedepot.ss.sh.webservices.customer.PRODetailRecord" xmlns:ns15="http://customer.webservices.sh.ss.homedepot.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns16:DIYDetailRecord" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.homedepot.ss.sh.webservices.customer.DIYDetailRecord" xmlns:ns16="http://customer.webservices.sh.ss.homedepot.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns17:InsertRecord" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.homedepot.ss.sh.webservices.customer.InsertRecord" xmlns:ns17="http://customer.webservices.sh.ss.homedepot.com"/>
+  <ns1:arrayMapping innerType="ns18:PhoneRecord" languageSpecificType="java:com.homedepot.ss.sh.webservices.customer.PhoneRecord[]" qname="ns18:ArrayOfPhoneRecord" xmlns:ns18="http://customer.webservices.sh.ss.homedepot.com"/>
+  <ns1:arrayMapping innerType="ns19:AddressRecord" languageSpecificType="java:com.homedepot.ss.sh.webservices.customer.AddressRecord[]" qname="ns19:ArrayOfAddressRecord" xmlns:ns19="http://customer.webservices.sh.ss.homedepot.com"/>
+  <ns1:arrayMapping innerType="ns20:CustomerIdRecord" languageSpecificType="java:com.homedepot.ss.sh.webservices.customer.CustomerIdRecord[]" qname="ns20:ArrayOfCustomerIdRecord" xmlns:ns20="http://customer.webservices.sh.ss.homedepot.com"/>
+  <ns1:arrayMapping innerType="ns21:TaxRuleRecord" languageSpecificType="java:com.homedepot.ss.sh.webservices.customer.TaxRuleRecord[]" qname="ns21:ArrayOfTaxRuleRecord" xmlns:ns21="http://customer.webservices.sh.ss.homedepot.com"/>
+  <ns1:arrayMapping innerType="ns22:EmailAddressRecord" languageSpecificType="java:com.homedepot.ss.sh.webservices.customer.EmailAddressRecord[]" qname="ns22:ArrayOfEmailAddressRecord" xmlns:ns22="http://customer.webservices.sh.ss.homedepot.com"/>
+  <ns1:arrayMapping innerType="ns23:ContactRecord" languageSpecificType="java:com.homedepot.ss.sh.webservices.customer.ContactRecord[]" qname="ns23:ArrayOfContactRecord" xmlns:ns23="http://customer.webservices.sh.ss.homedepot.com"/>
+  <ns1:arrayMapping innerType="ns24:AgentRecord" languageSpecificType="java:com.homedepot.ss.sh.webservices.customer.AgentRecord[]" qname="ns24:ArrayOfAgentRecord" xmlns:ns24="http://customer.webservices.sh.ss.homedepot.com"/>
+  <ns1:arrayMapping innerType="ns25:UnfvrRentalRecord" languageSpecificType="java:com.homedepot.ss.sh.webservices.customer.UnfvrRentalRecord[]" qname="ns25:ArrayOfUnfvrRentalRecord" xmlns:ns25="http://customer.webservices.sh.ss.homedepot.com"/>
+<!--  <ns1:arrayMapping innerType="ns26:SearchRecord" languageSpecificType="java:com.homedepot.ss.sh.webservices.customer.SearchRecord[]" qname="ns26:ArrayOfSearchRecord" xmlns:ns26="http://customer.webservices.sh.ss.homedepot.com"/>-->
+ <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns26:ArrayOfSearchRecord" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.homedepot.ss.sh.webservices.customer.ArrayOfSearchRecord" xmlns:ns26="http://customer.webservices.sh.ss.homedepot.com"/>
+ </ns1:service>
+ <ns1:service name="SkuLookup" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:parameter name="allowedMethods" value="*"/>
+  <ns1:parameter name="wsdlPortType" value="SkuLookup"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlServicePort" value="SkuLookup"/>
+  <ns1:parameter name="className" value="com.homedepot.ss.sh.webservices.lookup.sku.SkuLookupSoapBindingSkeleton"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://sku.lookup.webservices.sh.ss.homedepot.com"/>
+  <ns1:parameter name="wsdlServiceElement" value="SkuLookupService"/>
+  <ns1:parameter name="schemaUnqualified" value="http://exceptions.sku.lookup.webservices.sh.ss.homedepot.com,http://sku.lookup.webservices.sh.ss.homedepot.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns27:SkuLookupException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.homedepot.ss.sh.webservices.lookup.sku.exceptions.SkuLookupException" xmlns:ns27="http://exceptions.sku.lookup.webservices.sh.ss.homedepot.com"/>
+ </ns1:service>
+ <ns1:service name="AdminService" provider="java:MSG">
+  <ns1:parameter name="allowedMethods" value="AdminService"/>
+  <ns1:parameter name="enableRemoteAdmin" value="false"/>
+  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
+ </ns1:service>
+ <ns1:service name="Version" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="getVersion"/>
+  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:service name="TaxRateLookup" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:parameter name="allowedMethods" value="*"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="TaxRateLookup"/>
+  <ns1:parameter name="className" value="com.homedepot.ss.sh.webservices.lookup.taxrate.TaxRateLookupSoapBindingSkeleton"/>
+  <ns1:parameter name="wsdlServicePort" value="TaxRateLookup"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://taxrate.lookup.webservices.sh.ss.homedepot.com"/>
+  <ns1:parameter name="wsdlServiceElement" value="TaxRateLookupService"/>
+  <ns1:parameter name="schemaUnqualified" value="http://taxrate.lookup.webservices.sh.ss.homedepot.com,http://exceptions.taxrate.lookup.webservices.sh.ss.homedepot.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns28:TaxLookupException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.homedepot.ss.sh.webservices.lookup.taxrate.exceptions.TaxLookupException" xmlns:ns28="http://exceptions.taxrate.lookup.webservices.sh.ss.homedepot.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns29:TaxRateRecord" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.homedepot.ss.sh.webservices.lookup.taxrate.TaxRateRecord" xmlns:ns29="http://taxrate.lookup.webservices.sh.ss.homedepot.com"/>
+ </ns1:service>
+ <ns1:transport name="http">
+  <ns1:requestFlow>
+   <ns1:handler type="URLMapper"/>
+   <ns1:handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </ns1:requestFlow>
+  <ns1:parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <ns1:parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </ns1:transport>
+ <ns1:transport name="local">
+  <ns1:responseFlow>
+   <ns1:handler type="LocalResponder"/>
+  </ns1:responseFlow>
+ </ns1:transport>
+</ns1:deployment>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://taxrate.lookup.webservices.sh.ss.homedepot.com" xmlns:impl="http://taxrate.lookup.webservices.sh.ss.homedepot.com" xmlns:intf="http://taxrate.lookup.webservices.sh.ss.homedepot.com" xmlns:tns2="http://exceptions.taxrate.lookup.webservices.sh.ss.homedepot.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsi="http://ws-i.org/profiles/basic/1.1/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ <wsdl:types>
+  <schema targetNamespace="http://taxrate.lookup.webservices.sh.ss.homedepot.com" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <element name="getTaxRateResponse">
+    <complexType>
+     <sequence>
+      <element name="getTaxRateReturn" nillable="true" type="impl:TaxRateRecord"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getTaxRate">
+    <complexType>
+     <sequence>
+      <element name="effectiveDate" nillable="true" type="xsd:dateTime"/>
+      <element name="zipCode" nillable="true" type="xsd:string"/>
+      <element name="cityName" nillable="true" type="xsd:string"/>
+      <element name="countyName" nillable="true" type="xsd:string"/>
+      <element name="stateCode" nillable="true" type="xsd:string"/>
+      <element name="countryCode" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="TaxRateRecord">
+    <sequence>
+     <element name="freightTax" type="xsd:double"/>
+     <element name="laborTax" type="xsd:double"/>
+     <element name="PSTincGST" type="xsd:boolean"/>
+     <element name="salesTax" type="xsd:double"/>
+     <element name="useTax" type="xsd:double"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema targetNamespace="http://exceptions.taxrate.lookup.webservices.sh.ss.homedepot.com" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <complexType name="TaxLookupException">
+    <sequence>
+     <element name="msgNbr" nillable="true" type="xsd:string"/>
+     <element name="message" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="TaxLookupException" nillable="true" type="tns2:TaxLookupException"/>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getTaxRateRequest">
+
+      <wsdl:part element="impl:getTaxRate" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="TaxLookupException">
+
+      <wsdl:part element="tns2:TaxLookupException" name="fault"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTaxRateResponse">
+
+      <wsdl:part element="impl:getTaxRateResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="TaxRateLookup">
+
+      <wsdl:operation name="getTaxRate">
+
+         <wsdl:input message="impl:getTaxRateRequest" name="getTaxRateRequest"/>
+
+         <wsdl:output message="impl:getTaxRateResponse" name="getTaxRateResponse"/>
+
+         <wsdl:fault message="impl:TaxLookupException" name="TaxLookupException"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="TaxRateLookupSoapBinding" type="impl:TaxRateLookup">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getTaxRate">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getTaxRateRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getTaxRateResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="TaxLookupException">
+
+            <wsdlsoap:fault name="TaxLookupException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="TaxRateLookupService">
+
+      <wsdl:port binding="impl:TaxRateLookupSoapBinding" name="TaxRateLookup">
+
+         <wsdlsoap:address location="http://webapps-qa.homedepot.com/SSSHWebServicesWeb/services/TaxRateLookup"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

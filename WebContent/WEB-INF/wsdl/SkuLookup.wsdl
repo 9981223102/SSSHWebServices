@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://sku.lookup.webservices.sh.ss.homedepot.com" xmlns:impl="http://sku.lookup.webservices.sh.ss.homedepot.com" xmlns:intf="http://sku.lookup.webservices.sh.ss.homedepot.com" xmlns:tns2="http://exceptions.sku.lookup.webservices.sh.ss.homedepot.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsi="http://ws-i.org/profiles/basic/1.1/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ <wsdl:types>
+  <schema targetNamespace="http://sku.lookup.webservices.sh.ss.homedepot.com" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <element name="getNextAvailableSkuResponse">
+    <complexType>
+     <sequence>
+      <element name="getNextAvailableSkuReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getNextAvailableSku">
+    <complexType>
+     <sequence/>
+    </complexType>
+   </element>
+  </schema>
+  <schema targetNamespace="http://exceptions.sku.lookup.webservices.sh.ss.homedepot.com" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <complexType name="SkuLookupException">
+    <sequence>
+     <element name="msgNbr" nillable="true" type="xsd:string"/>
+     <element name="message" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="SkuLookupException" nillable="true" type="tns2:SkuLookupException"/>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="SkuLookupException">
+
+      <wsdl:part element="tns2:SkuLookupException" name="fault"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getNextAvailableSkuResponse">
+
+      <wsdl:part element="impl:getNextAvailableSkuResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getNextAvailableSkuRequest">
+
+      <wsdl:part element="impl:getNextAvailableSku" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="SkuLookup">
+
+      <wsdl:operation name="getNextAvailableSku">
+
+         <wsdl:input message="impl:getNextAvailableSkuRequest" name="getNextAvailableSkuRequest"/>
+
+         <wsdl:output message="impl:getNextAvailableSkuResponse" name="getNextAvailableSkuResponse"/>
+
+         <wsdl:fault message="impl:SkuLookupException" name="SkuLookupException"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SkuLookupSoapBinding" type="impl:SkuLookup">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getNextAvailableSku">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getNextAvailableSkuRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getNextAvailableSkuResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SkuLookupException">
+
+            <wsdlsoap:fault name="SkuLookupException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SkuLookupService">
+
+      <wsdl:port binding="impl:SkuLookupSoapBinding" name="SkuLookup">
+
+         <wsdlsoap:address location="http://webapps-qa.homedepot.com/SSSHWebServicesWeb/services/SkuLookup"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
